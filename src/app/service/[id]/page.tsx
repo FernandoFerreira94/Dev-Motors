@@ -1,17 +1,27 @@
-import styles from "./styles.module.scss";
-import { Headset } from "lucide-react";
-
-import About from "@/components/about";
-import Card from "@/components/card";
-import Footer from "@/components/footer";
-import Hero from "@/components/hero";
-import SubMenu from "@/components/submenu";
 import { getDataHome } from "@/utils/actions/get-data";
 import { HomeProps } from "@/utils/home.type";
+import SubMenu from "@/components/submenu";
+import { Headset } from "lucide-react";
+import Hero from "@/components/hero";
+import About from "@/components/about";
+import Footer from "@/components/footer";
 
-export default async function Home() {
+interface ServicesPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function Services(props: ServicesPageProps) {
+  const { id } = await props.params; // <-- aqui você "resolve" a promise
+  const numId = Number(id);
+
   const res: HomeProps = await getDataHome();
   const data = res.object;
+  const service = data.metadata.services[numId];
+
+  if (!service) {
+    return <h1>Serviço não encontrado 🚨</h1>;
+  }
+
   return (
     <main>
       <SubMenu data={data.metadata.services} />
@@ -23,26 +33,14 @@ export default async function Home() {
         cta_buttonTitle={data.metadata.cta_button.title}
         icon={<Headset size={22} color="#fff" />}
       />
-      <About
-        description={data.metadata.about.description}
-        image={data.metadata.about.banner.url}
-        title="Sobre"
-        cta_buttonUrl=""
-      />
 
-      <div className={styles.services}>
-        <h1>CONHEÇA NOSSOS SERVIÇOS</h1>
-        <section className={styles.cards}>
-          {data.metadata.services.map((iten, index) => (
-            <Card
-              key={index}
-              index={index}
-              imageService={iten.image.url}
-              textService={iten.title}
-            />
-          ))}
-        </section>
-      </div>
+      <About
+        description={service.description}
+        image={service.image.url}
+        title={service.title}
+        zap={true}
+        cta_buttonUrl={data.metadata.cta_button.url}
+      />
       <Footer
         email={data.metadata.contact.email}
         phone={data.metadata.contact.phone}

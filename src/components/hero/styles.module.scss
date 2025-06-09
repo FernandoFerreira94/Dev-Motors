@@ -1,0 +1,54 @@
+.hero {
+  position: relative;
+  width: 100%;
+
+  height: 600px;
+  max-height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(10px);
+
+  * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; // shorthand para top, right, bottom, left: 0
+    background-color: rgba(0, 0, 0, 0.7); // ajuste a opacidade conforme quiser
+    z-index: 1;
+  }
+
+  .titleHero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2.4rem;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero .titleHero {
+    width: 80%;
+    h1 {
+      font-size: 2rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+    }
+  }
+}

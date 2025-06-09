@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  color: #fff;
+}
+
+main {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h1,
+p,
+span,
+a h4 {
+  color: #000;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  margin-top: 70px;
+}

@@ -1,0 +1,16 @@
+.btnContato {
+  color: #fff;
+  padding: 10px 24px;
+  background: #1fa51f;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: medium;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: #1a891a;
+  }
+}

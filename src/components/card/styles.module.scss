@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 8px;
+  p {
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.cardImage {
+  object-fit: cover;
+  filter: brightness(60%);
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 8px;
+  &:hover {
+    filter: brightness(100%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    align-items: center;
+  }
+  .cardImage {
+    width: 85%;
+    height: 300px;
+  }
+}
