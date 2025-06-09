@@ -1,7 +1,7 @@
 export async function getDataHome() {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API}/objects/6846ba0829a93ebe69ecbc6d?pretty=true&read_key=${process.env.READ_KEY}&depth=1&props=slug,title,metadata,type`
+      `${process.env.COSMIC_API_URL}/objects/6846ba0829a93ebe69ecbc6d?pretty=true&read_key=${process.env.COSMIC_READ_KEY}&depth=1&props=slug,title,metadata,type`
     );
 
     if (!response.ok) {

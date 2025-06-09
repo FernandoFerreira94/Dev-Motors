@@ -12,6 +12,7 @@ import { HomeProps } from "@/utils/home.type";
 export default async function Home() {
   const res: HomeProps = await getDataHome();
   const data = res.object;
+
   return (
     <main>
       <SubMenu data={data.metadata.services} />
